@@ -11,7 +11,10 @@ Guild ::Guild(string gN)
 }
 Guild ::~Guild()
 {
-    
+    for (int i = 0; i < memberCount; i++)
+    {
+        roaster[i] = nullptr;
+    }
     cout << "The guild " << guildName << " has been disbanded!\n";
 }
 //===================================
@@ -20,18 +23,19 @@ Guild ::~Guild()
 
 int Guild ::calculateTotalGuildPower()
 {
-  int totalPower=0;
-  for(int i=0;i<memberCount;i++){
-    totalPower+=roaster[i]->getPower();
-  }
-  return totalPower;
+    int totalPower = 0;
+    for (int i = 0; i < memberCount; i++)
+    {
+        totalPower += roaster[i]->getPower();
+    }
+    return totalPower;
 }
 void Guild ::displayGuildStats()
 {
-  
+
     cout << "Guild Name: " << guildName << endl;
-    cout<<"Total Members: "<<memberCount<<"/15"<<endl;
-cout<<"Total Guild Power: "<<calculateTotalGuildPower()<<endl;
+    cout << "Total Members: " << memberCount << "/15" << endl;
+    cout << "Total Guild Power: " << calculateTotalGuildPower() << endl;
 }
 void Guild ::operator+=(Hero *newHero)
 {
@@ -45,13 +49,13 @@ void Guild ::operator+=(Hero *newHero)
 }
 ostream &operator<<(ostream &os, const Guild &g)
 {
-    cout<< "Guild: " << g.guildName<<endl;
-    cout<<"Members: "<<g.memberCount<<endl;
+    cout << "Guild: " << g.guildName << endl;
+    cout << "Members: " << g.memberCount << endl;
     for (int i = 0; i < g.memberCount; i++)
     {
-        
-        cout<< "- " << g.roaster[i]->getName() << " (Power: " << g.roaster[i]->getPower() << ")" << endl;
+
+        cout << "- " << g.roaster[i]->getName() << " (Power: " << g.roaster[i]->getPower() << ")" << endl;
     }
-    
+
     return cout;
 }
