@@ -11,6 +11,7 @@ Guild ::Guild(string gN)
 }
 Guild ::~Guild()
 {
+    
     cout << "The guild " << guildName << " has been disbanded!\n";
 }
 //===================================

@@ -19,16 +19,16 @@ using namespace std;
 int main() {
     string name;
     cout<<"Enter Guild Name: ";
-    cin>>name;
+    getline(cin,name);
     Guild myGuild(name);  // or input from user
 
     int choice;
     do {
 
-        cout <<YELLOW"\n\t\t\t================== GUILD MANAGEMENT =================\n"<<RESET;
-        cout << "\t\t\t1. Add Warrior                2. Add Knight\n";
-        cout << "\t\t\t3. Add Spellblade             4. Display Guild Stats\n";
-        cout << "\t\t\t5. Calculate Guild Power      6.Enter 6 to Exit\n";
+        cout <<YELLOW"\n\t\t\t\t\t================ GUILD MANAGEMENT =====================\n"<<RESET;
+        cout <<GREEN "\t\t\t\t\t1. Add Warrior                    2. Add Knight\n";
+        cout << "\t\t\t\t\t3. Add Spellblade                 4. Display Guild Stats\n";
+        cout << "\t\t\t\t\t5. Calculate Guild Power          6. Enter 0 to Exit\n"<<RESET;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -47,14 +47,12 @@ int main() {
             cin>>armor;
             Warrior* w = new Warrior(name, health, basePower, armor);
             myGuild += w;
-            delete w;
+            
         }
          if (choice == 2) {
             string name;
             int health, basePower, armor, charge;
-            string name;
-
-            int health, basePower, armor;
+           
             cout << "Enter Knight name:";
             
             cin >> name ;
@@ -68,15 +66,13 @@ int main() {
             cin>>charge;
             Knight* k = new Knight(name, health, basePower, armor, charge);
             myGuild += k;
-            delete k;
+            
         }
          if (choice == 3) {
             string name;
             int health, basePower, armor, mana, spell;
            
-             string name;
-
-            int health, basePower, armor;
+             
             cout << "Enter SpellBlade name:";
             
             cin >> name ;
@@ -92,20 +88,20 @@ int main() {
             cin>>spell;
             SpellBlade* s = new SpellBlade(name, health, basePower, armor, mana, spell);
             myGuild += s;
-            delete s;
+            
         }
          if (choice == 4) {
             myGuild.displayGuildStats();
         }
          if (choice == 5) {
-            cout<<myGuild.calculateTotalGuildPower() << endl;
+            cout<<"Total Guild Power is: "<<YELLOW<< myGuild.calculateTotalGuildPower() << endl<<RESET;
         }
-         if (choice == 6) {
+         if (choice == 0) {
 
-            cout << "Exiting program.\n";
+            cout <<YELLOW "Programs End Successfully ----\n"<<RESET;
         }
-        if(choice>6||choice<0) {
-            cout << "Invalid choice!\n";
+        if(choice>5||choice<0) {
+            cout <<RED "Invalid choice!\n"<<RESET;
             
         }
 
