@@ -49,13 +49,13 @@ void Guild ::operator+=(Hero *newHero)
 }
 ostream &operator<<(ostream &os, const Guild &g)
 {
-    cout << "Guild: " << g.guildName << endl;
-    cout << "Members: " << g.memberCount << endl;
+    os << "Guild: " << g.guildName << endl;
+    os << "Members: " << g.memberCount << endl;
     for (int i = 0; i < g.memberCount; i++)
     {
 
-        cout << "- " << g.roaster[i]->getName() << " (Power: " << g.roaster[i]->getPower() << ")" << endl;
+        os << "- " << g.roaster[i]->getName() << " (Power: " << g.roaster[i]->getPower() << ")" << endl;
     }
 
-    return cout;
+    return os;
 }
