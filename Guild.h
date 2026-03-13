@@ -22,6 +22,19 @@ public:
     Guild(string gN);
     ~Guild();
     //===================================
+    //   GETTER FUNCTIONS
+    //===================================
+    string getGuildName()const;
+    int getMemberCount()const;
+     //===================================
+    //   SETTER FUNCTIONS
+    //===================================
+    void setGuildName(string name);
+    void setMemberCount( int count);
+    
+
+
+    //===================================
     //           FUNCTIONS
     //===================================
 

@@ -15,8 +15,31 @@ Guild ::~Guild()
     {
         roaster[i] = nullptr;
     }
-    cout << "The guild " << guildName << " has been disbanded!\n";
+    cout << "The guild " << getGuildName() << " has been disbanded!\n";
 }
+//===================================
+    //   GETTER FUNCTIONS
+    //===================================
+    string Guild :: getGuildName()const{
+        return guildName;
+    }
+    int Guild :: getMemberCount()const{
+
+        return memberCount;
+    }
+     //===================================
+    //   SETTER FUNCTIONS
+    //===================================
+    void Guild :: setGuildName(string name){
+        guildName=name;
+
+    }
+    void Guild :: setMemberCount( int count){
+    memberCount=count;
+
+    }
+    
+
 //===================================
 //           FUNCTIONS
 //===================================
@@ -33,8 +56,8 @@ int Guild ::calculateTotalGuildPower()
 void Guild ::displayGuildStats()
 {
 
-    cout << "Guild Name: " << guildName << endl;
-    cout << "Total Members: " << memberCount << "/15" << endl;
+    cout << "Guild Name: " << getGuildName() << endl;
+    cout << "Total Members: " << getMemberCount() << "/15" << endl;
     cout << "Total Guild Power: " << calculateTotalGuildPower() << endl;
 }
 void Guild ::operator+=(Hero *newHero)
@@ -47,6 +70,7 @@ void Guild ::operator+=(Hero *newHero)
     }
     cout << "Guild is at full capacity!\n";
 }
+
 ostream &operator<<(ostream &os, const Guild &g)
 {
     os << "Guild: " << g.guildName << endl;
